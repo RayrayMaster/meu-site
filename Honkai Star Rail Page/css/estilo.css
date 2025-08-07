@@ -1,0 +1,16 @@
+
+        h1{
+            text-decoration: double;color: blueviolet; font-family: cursive;
+            text-align: center; border-color: black;
+        }
+        p{
+            text-align: center;text-decoration: double;color: rgb(68, 0, 255);font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color: aqua;
+        }
+     .caixa{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: brown;
+    }
+    
