@@ -1,33 +1,83 @@
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=book_3" />
+        <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+            vertical-align: middle;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        </style>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+    
     <style>
-    .material-symbols-outlined {
-        font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-        vertical-align: middle;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-    }
-    .logo {
+    h1 {
+        text-align: center;
+        color: white;
+        background-color: #333;
+        padding: 10px;
+        border: #333 solid 1px;
+     }
+     .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 10px;
+        height: fit-content;
+        border: #333 solid 1px;
+     }
+     .card {
+        background-color: #e9ecef;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 5px;
+        text-align: center;
+     }
+     body {
+        font-family: Arial, sans-serif;
+    
+        background-color: #08b6b6;
+     }
+     .logo {
         display: flex;
         align-items: center;
-    }
-    .logo img {
-        height: 120px;
-        width: 120px;
-        object-fit: cover;
+     }
+     .logo img {
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
         border-radius: 80%;
         background: #fff;
         box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-        padding: 0;
-    }
+    padding: 0;
+     }
+     /* Estilos base */
+header {
+    background-color: #b2ebf2; /* tom ainda mais suave */
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 0 0 12px 12px;
+    padding-bottom: 0.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
     .nav-menu {
         display: grid;
         grid-auto-flow: column;
@@ -38,75 +88,109 @@
         justify-content: center;
         align-items: center;
     }
-    header {
-        background-color: #b2ebf2;
-        color: #222;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        border-radius: 0 0 12px 12px;
-        padding-bottom: 0.5rem;
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-menu a {
+    color: #222;
+    background: #e0f7fa;
+    border-radius: 6px;
+    border: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.2s;
+}
+
+.nav-menu a:hover {
+    background: #b2ebf2;
+    color: #00796b;
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+       
+    }
+    
+    .nav-menu li {
+        margin: 0.5rem 0;
+        border: #333 solid 1px;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo img {
+        height: 60px;
+        width: 60px;
+    }
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
     }
     nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
+        flex-direction: column;
+        padding: 0.5rem 0.5rem;
     }
-    @media (max-width: 600px) {
-        .logo img {
-            height: 60px;
-            width: 60px;
-        }
-        .nav-menu {
-            grid-auto-flow: row;
-            gap: 1rem;
-        }
-        nav {
-            flex-direction: column;
-            padding: 0.5rem 0.5rem;
-        }
-        header {
-            border-radius: 0 0 8px 8px;
-            padding-bottom: 0.25rem;
-        }
-        body {
-            margin: 4px;
-        }
+    header {
+        border-radius: 0 0 8px 8px;
+        padding-bottom: 0.25rem;
     }
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>copyright ©</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #c96be0;
-            margin: 20px;
-        }
-        p,h1 { 
-            color: antiquewhite;
-           
-        }
+    body {
+        margin: 4px;
+    }
+}
     </style>
 </head>
 <body>
-    <header>
+      <header>
         <nav>
             <div class="logo"><img src="IMG/Gemini_Generated_Image_o7kjo4o7kjo4o7kj.png" alt="logo"></div>
             <ul class="nav-menu">
                 <li><a href="index.html"><span class="material-symbols-outlined">home</span></a></li>
                 <li><a href="sobre.html"><span class="material-symbols-outlined">copyright</span></a></li>
                 <li><a href="detalhes.html"><span class="material-symbols-outlined">book_3</span></a></li>
+                
             </ul>
         </nav>
     </header>
-    <h1>
-    Sobre o site de receitas
-</h1>
-    <p>
-        Este site foi criado para compartilhar receitas deliciosas e fáceis de preparar. Navegue pelas nossas categorias e encontre a receita perfeita para qualquer ocasião!
-    </p>
-    <p>
-        © 2025 Site de Receitas. Todos os direitos reservados.
-    </p>
+  
+    <h1>Bem-vindo ao site de receitas:</h1>
+    </div>
+    <div class="grid-container">
+        <div class="card">Macarrão
+            <a href="detalhes.html">
+                <img src="https://s01.video.glbimg.com/x720/10428512.jpg" alt="macarrão" height="200px" width="300px">
+            </a>
+        </div>
+        <div class="card">Lasanha
+            <a href="detalhes.html">
+                <img src="https://static.itdg.com.br/images/640-440/50baa6e845dcfb528fa03067a4e873b7/252833-shutterstock-2290679949.jpg" alt="lasanha" height="200px" width="300px">
+            </a>
+        </div>
+        <div class="card">Pizza
+            <a href="detalhes.html">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThOeh0HWVD5vj_E7hzBXcfGdxWZe0kmYlkgDxzGy76kwW5jb2V49rUaJgDNHlfnbIK3rDczTOwO7nMGm19c8VuRTbuiTxEG8h5X96Mvj8" alt="pizza" height="200px" width="300px">
+            </a>
+        </div>
+        <div class="card">Strogonoff
+            <a href="detalhes.html">
+                <img src="https://s2-receitas.glbimg.com/s0a4UkANuWddjjsBHpr5dlNsow0=/0x0:500x375/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2012/06/13/15/37/34/667/carne.jpg" alt="strogonoff" height="200px" width="300px">
+            </a>
+        </div>
+        
+    </div>
+    <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="logo" height="100px" width="100px">
+        
+    </div>
+
+    
 </body>
 </html>
