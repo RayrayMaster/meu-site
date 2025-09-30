@@ -32,7 +32,7 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             padding: 10px;
             height: fit-content;
@@ -41,10 +41,17 @@
 
         .card {
             background-color: #e9ecef;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
             text-align: center;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         body {
@@ -151,13 +158,16 @@
             body {
                 margin: 4px;
             }
+            .grid-container {
+                grid-template-columns: 1fr; /* uma imagem por linha no celular */
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <!-- Logo corrigida -->
+            <!-- Logo -->
             <div class="logo">
                 <img src="https://img.freepik.com/premium-vector/italian-food-logo-name-icon-symbol-vector-italy_526280-402.jpg" alt="logo">
             </div>
@@ -174,22 +184,22 @@
     <div class="grid-container">
         <div class="card">Macarrão
             <a href="detalhes.html">
-                <img src="https://s01.video.glbimg.com/x720/10428512.jpg" alt="macarrão" height="200px" width="300px">
+                <img src="https://s01.video.glbimg.com/x720/10428512.jpg" alt="macarrão">
             </a>
         </div>
         <div class="card">Lasanha
             <a href="detalhes.html">
-                <img src="https://static.itdg.com.br/images/640-440/50baa6e845dcfb528fa03067a4e873b7/252833-shutterstock-2290679949.jpg" alt="lasanha" height="200px" width="300px">
+                <img src="https://static.itdg.com.br/images/640-440/50baa6e845dcfb528fa03067a4e873b7/252833-shutterstock-2290679949.jpg" alt="lasanha">
             </a>
         </div>
         <div class="card">Pizza
             <a href="detalhes.html">
-                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThOeh0HWVD5vj_E7hzBXcfGdxWZe0kmYlkgDxzGy76kwW5jb2V49rUaJgDNHlfnbIK3rDczTOwO7nMGm19c8VuRTbuiTxEG8h5X96Mvj8" alt="pizza" height="200px" width="300px">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThOeh0HWVD5vj_E7hzBXcfGdxWZe0kmYlkgDxzGy76kwW5jb2V49rUaJgDNHlfnbIK3rDczTOwO7nMGm19c8VuRTbuiTxEG8h5X96Mvj8" alt="pizza">
             </a>
         </div>
         <div class="card">Strogonoff
             <a href="detalhes.html">
-                <img src="https://s2-receitas.glbimg.com/s0a4UkANuWddjjsBHpr5dlNsow0=/0x0:500x375/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2012/06/13/15/37/34/667/carne.jpg" alt="strogonoff" height="200px" width="300px">
+                <img src="https://s2-receitas.glbimg.com/s0a4UkANuWddjjsBHpr5dlNsow0=/0x0:500x375/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2012/06/13/15/37/34/667/carne.jpg" alt="strogonoff">
             </a>
         </div>
     </div>
