@@ -81,6 +81,9 @@
             padding: 0.5rem 1rem;
             text-decoration: none;
             transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .nav-menu li a:hover {
@@ -103,6 +106,23 @@
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             margin-bottom: 10px;
+        }
+
+        /* Botão Voltar */
+        .btn-voltar {
+            display: inline-block;
+            margin-top: 20px;
+            background: #e0f7fa;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: #222;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-voltar:hover {
+            background: #b2ebf2;
+            color: #00796b;
         }
 
         /* Responsividade */
@@ -130,21 +150,6 @@
                 margin: 5px;
             }
         }
-
-        a {
-            display: inline-block;
-            margin-top: 10px;
-            background: #e0f7fa;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            color: #222;
-            text-decoration: none;
-        }
-
-        a:hover {
-            background: #b2ebf2;
-            color: #00796b;
-        }
     </style>
 </head>
 <body>
@@ -152,13 +157,13 @@
         <nav>
             <!-- Logo principal apenas -->
             <div class="logo">
-                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo principal">
+                <img src="https://img.freepik.com/premium-vector/italian-food-logo-name-icon-symbol-vector-italy_526280-402.jpg" alt="Logo principal">
             </div>
 
             <ul class="nav-menu">
-                <li><a href="index.html"><span class="material-symbols-outlined">home</span></a></li>
-                <li><a href="sobre.html"><span class="material-symbols-outlined">copyright</span></a></li>
-                <li><a href="detalhes.html"><span class="material-symbols-outlined">book_3</span></a></li>
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span> Home</a></li>
+                <li><a href="sobre.html"><span class="material-symbols-outlined">copyright</span> Sobre</a></li>
+                <li><a href="detalhes.html"><span class="material-symbols-outlined">book_3</span> Receitas</a></li>
             </ul>
         </nav>
     </header>
@@ -194,6 +199,6 @@
         <p>Modo de preparo: Doure a carne, adicione os ingredientes e cozinhe até ficar cremoso.</p>
     </div>
 
-    <a href="index.html">Voltar</a>
+    <a href="index.html" class="btn-voltar">Voltar</a>
 </body>
 </html>
