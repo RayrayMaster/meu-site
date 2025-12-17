@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapore Italiano - Receitas Italianas</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BG7KXD5F8E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BG7KXD5F8E');
+    </script>
+
+    <!-- Ícones Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+    
+    <!-- Fonte Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            /* Cores claras (padrão) */
+            --primary-color: #d32f2f;
+            --secondary-color: #f9a825;
+            --bg-color: #f8f5f2;
+            --card-bg: #ffffff;
+            --text-color: #2c1810;
+            --text-secondary: #555555;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --hero-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Modo escuro automático */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #ff6b6b;
+                --secondary-color: #ffb74d;
+                --bg-color: #121212;
+                --card-bg: #1e1e1e;
+                --text-color: #f0f0f0;
+                --text-secondary: #b0b0b0;
+                --border-color: #333333;
+                --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+                --hero-overlay: rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+            padding: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
+                        url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            background: #ff9800;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.3);
+        }
+
+        /* ===== RECEITAS EM DESTAQUE ===== */
+        .featured-recipes {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Layout específico para desktop grande */
+        @media (min-width: 1400px) {
+            .recipes-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .recipe-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .recipe-image {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .recipe-card:hover .recipe-image {
+            transform: scale(1.05);
+        }
+
+        .recipe-content {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recipe-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .recipe-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .recipe-time {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .recipe-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .recipe-link:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+        }
+
+        /* ===== CATEGORIAS ===== */
+        .categories {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            padding: 4px;
+        }
+
+        .footer-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .copyright {
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        
+        /* Desktop Médio */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .hero {
+                padding: 5rem 1.5rem;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+            
+            .featured-recipes,
+            .categories {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Tablet Pequeno / Mobile Grande */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+            
+            .nav-menu a {
+                padding: 0.5rem 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.8rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 576px) {
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .nav-menu a {
+                width: 220px;
+                justify-content: center;
+            }
+            
+            .logo {
+                gap: 0.8rem;
+            }
+            
+            .logo img {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .hero {
+                padding: 3.5rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-cta {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .recipe-image {
+                height: 200px;
+            }
+            
+            .recipe-content {
+                padding: 1.5rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            
+            .category-card {
+                padding: 1.5rem;
+            }
+            
+            .featured-recipes,
+            .categories {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Mobile Pequeno */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .recipe-image {
+                height: 180px;
+            }
+            
+            .recipe-content {
+                padding: 1.2rem;
+            }
+            
+            .recipe-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="https://img.freepik.com/premium-vector/italian-food-logo-name-icon-symbol-vector-italy_526280-402.jpg" alt="Logo Sapore Italiano">
+                <div class="logo-text">Sapore Italiano</div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active"><span class="material-symbols-outlined">home</span> Home</a></li>
+                <li><a href="sobre.html"><span class="material-symbols-outlined">restaurant</span> Sobre</a></li>
+                <li><a href="detalhes.html"><span class="material-symbols-outlined">menu_book</span> Receitas</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <div class="hero-content">
+                <h1>Sabores Autênticos da Itália</h1>
+                <p>
+                    Descubra receitas italianas tradicionais e modernas. 
+                    Role para baixo para ver nossas receitas em destaque e 
+                    depois escolha uma para ver as instruções completas.
+                </p>
+                <a href="#receitas-destaque" class="hero-cta">
+                    <span class="material-symbols-outlined">arrow_downward</span>
+                    Ver Receitas em Destaque
+                </a>
+            </div>
+        </section>
+
+        <!-- Receitas em Destaque -->
+        <section class="featured-recipes" id="receitas-destaque">
+            <div class="section-header">
+                <h2 class="section-title">Receitas em Destaque</h2>
+                <p class="section-subtitle">As receitas mais amadas da culinária italiana, perfeitas para qualquer ocasião</p>
+            </div>
+            
+            <div class="recipes-grid">
+                <!-- Card 1 -->
+                <div class="recipe-card fade-in">
+                    <img src="https://todeschinialimentos.com.br/images/receitas/2/todeschini-imagem-receitas-macarrao-carbonara-share.jpg" alt="Macarrão à Carbonara" class="recipe-image" loading="lazy">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Macarrão à Carbonara</h3>
+                        <p class="recipe-description">
+                            Clássico romano com ovos, queijo pecorino, pancetta e pimenta preta. 
+                            Simples, cremoso e irresistível.
+                        </p>
+                        <div class="recipe-meta">
+                            <div class="recipe-time">
+                                <span class="material-symbols-outlined">schedule</span>
+                                <span>25 min</span>
+                            </div>
+                            <a href="detalhes.html#carbonara" class="recipe-link">
+                                Ver Receita
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="recipe-card fade-in">
+                    <img src="https://static.itdg.com.br/images/640-440/50baa6e845dcfb528fa03067a4e873b7/252833-shutterstock-2290679949.jpg" alt="Lasanha à Bolonhesa" class="recipe-image" loading="lazy">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Lasanha à Bolonhesa</h3>
+                        <p class="recipe-description">
+                            Camadas perfeitas de massa, molho bolonhesa rico e queijos derretidos. 
+                            O comfort food ideal para reunir a família.
+                        </p>
+                        <div class="recipe-meta">
+                            <div class="recipe-time">
+                                <span class="material-symbols-outlined">schedule</span>
+                                <span>1h 30min</span>
+                            </div>
+                            <a href="detalhes.html#lasanha" class="recipe-link">
+                                Ver Receita
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="recipe-card fade-in">
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThOeh0HWVD5vj_E7hzBXcfGdxWZe0kmYlkgDxzGy76kwW5jb2V49rUaJgDNHlfnbIK3rDczTOwO7nMGm19c8VuRTbuiTxEG8h5X96Mvj8" alt="Pizza Margherita" class="recipe-image" loading="lazy">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Pizza Margherita</h3>
+                        <p class="recipe-description">
+                            A autêntica pizza napolitana com molho de tomate, mussarela de búfala 
+                            e manjericão fresco. Simples e perfeita.
+                        </p>
+                        <div class="recipe-meta">
+                            <div class="recipe-time">
+                                <span class="material-symbols-outlined">schedule</span>
+                                <span>2h (com fermentação)</span>
+                            </div>
+                            <a href="detalhes.html#pizza" class="recipe-link">
+                                Ver Receita
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="recipe-card fade-in">
+                    <img src="https://s2-receitas.glbimg.com/s0a4UkANuWddjjsBHpr5dlNsow0=/0x0:500x375/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2012/06/13/15/37/34/667/carne.jpg" alt="Strogonoff de Carne" class="recipe-image" loading="lazy">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Strogonoff de Carne</h3>
+                        <p class="recipe-description">
+                            Versão brasileira do clássico, cremoso e saboroso. 
+                            Perfeito para um almoço especial ou jantar em família.
+                        </p>
+                        <div class="recipe-meta">
+                            <div class="recipe-time">
+                                <span class="material-symbols-outlined">schedule</span>
+                                <span>40 min</span>
+                            </div>
+                            <a href="detalhes.html#strogonoff" class="recipe-link">
+                                Ver Receita
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias -->
+        <section class="categories">
+            <div class="section-header">
+                <h2 class="section-title">Explore por Categoria</h2>
+                <p class="section-subtitle">Encontreceitas por tipo de prato ou ingrediente principal</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card fade-in">
+                    <div class="category-icon">
+                        <span class="material-symbols-outlined">dinner_dining</span>
+                    </div>
+                    <h3>Massas</h3>
+                    <p>Espaguete, penne, ravioli e mais</p>
+                </div>
+                
+                <div class="category-card fade-in">
+                    <div class="category-icon">
+                        <span class="material-symbols-outlined">local_pizza</span>
+                    </div>
+                    <h3>Pizzas</h3>
+                    <p>Clássicas e criativas</p>
+                </div>
+                
+                <div class="category-card fade-in">
+                    <div class="category-icon">
+                        <span class="material-symbols-outlined">soup_kitchen</span>
+                    </div>
+                    <h3>Sopas</h3>
+                    <p>Para dias frios</p>
+                </div>
+                
+                <div class="category-card fade-in">
+                    <div class="category-icon">
+                        <span class="material-symbols-outlined">cake</span>
+                    </div>
+                    <h3>Sobremesas</h3>
+                    <p>Doces italianos</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://img.freepik.com/premium-vector/italian-food-logo-name-icon-symbol-vector-italy_526280-402.jpg" alt="Logo Sapore Italiano">
+                <span>Sapore Italiano</span>
+            </div>
+            <p>Receitas italianas autênticas para todas as ocasiões</p>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sapore Italiano. Site de demonstração.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Detecta preferência de tema do usuário
+        function detectTheme() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.body.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+            document.body.classList.add('loaded');
+        }
+
+        // Anima os elementos com delay
+        function animateElements() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+        }
+
+        // Smooth scroll para links internos
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            detectTheme();
+            animateElements();
+            setupSmoothScroll();
+            
+            // Listen for theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', detectTheme);
+            
+            // Efeito hover nos cards
+            document.querySelectorAll('.recipe-card, .category-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'all 0.3s ease';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
