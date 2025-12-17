@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Sapore Italiano</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BG7KXD5F8E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BG7KXD5F8E');
+    </script>
+
+    <!-- Ícones Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+    
+    <!-- Fonte Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            /* Cores claras (padrão) */
+            --primary-color: #d32f2f;
+            --secondary-color: #f9a825;
+            --bg-color: #f8f5f2;
+            --card-bg: #ffffff;
+            --text-color: #2c1810;
+            --text-secondary: #555555;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        /* Modo escuro automático */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #ff6b6b;
+                --secondary-color: #ffb74d;
+                --bg-color: #121212;
+                --card-bg: #1e1e1e;
+                --text-color: #f0f0f0;
+                --text-secondary: #b0b0b0;
+                --border-color: #333333;
+                --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+            padding: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ===== CONTEÚDO PRINCIPAL ===== */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ===== SOBRE CONTENT ===== */
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .sobre-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .sobre-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .sobre-texto {
+            line-height: 1.8;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .sobre-texto p:first-of-type {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* ===== CARACTERÍSTICAS ===== */
+        .caracteristicas {
+            margin-top: 2rem;
+        }
+
+        .caracteristicas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .caracteristica-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .caracteristica-item:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .caracteristica-icon {
+            color: var(--primary-color);
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .caracteristica-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .caracteristica-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            padding: 4px;
+        }
+
+        .footer-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .copyright {
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        
+        /* Tablet */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 2.4rem;
+            }
+            
+            .sobre-card {
+                padding: 2rem;
+            }
+            
+            main {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        /* Tablet Pequeno / Mobile Grande */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+            
+            .nav-menu a {
+                padding: 0.5rem 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+            
+            .sobre-card {
+                padding: 1.8rem;
+            }
+            
+            .caracteristicas-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 576px) {
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .nav-menu a {
+                width: 220px;
+                justify-content: center;
+            }
+            
+            .logo {
+                gap: 0.8rem;
+            }
+            
+            .logo img {
+                height: 50px;
+                width: 50px;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            .sobre-card {
+                padding: 1.5rem;
+            }
+            
+            .caracteristica-item {
+                padding: 1.2rem;
+            }
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="https://img.freepik.com/premium-vector/italian-food-logo-name-icon-symbol-vector-italy_526280-402.jpg" alt="Logo Sapore Italiano">
+                <div class="logo-text">Sapore Italiano</div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span> Home</a></li>
+                <li><a href="sobre.html" class="active"><span class="material-symbols-outlined">restaurant</span> Sobre</a></li>
+                <li><a href="detalhes.html"><span class="material-symbols-outlined">menu_book</span> Receitas</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header fade-in">
+            <h1 class="page-title">Sobre o Sapore Italiano</h1>
+            <p class="page-subtitle">Conheça nossa paixão pela culinária italiana e nosso compromisso com receitas autênticas</p>
+        </div>
+        
+        <div class="sobre-content">
+            <div class="sobre-card fade-in">
+                <div class="sobre-texto">
+                    <p>
+                        O <strong>Sapore Italiano</strong> nasceu da simples paixão por boa comida e do desejo de compartilhar 
+                        receitas italianas autênticas de forma acessível a todos. Acreditamos que cozinhar é uma 
+                        forma de conectar pessoas, culturas e histórias.
+                    </p>
+                    
+                    <p>
+                        Nosso objetivo é desmistificar a culinária italiana, mostrando que é possível preparar 
+                        pratos incríveis com ingredientes comuns e técnicas simples. Cada receita que você 
+                        encontra aqui foi pensada para ser reproduzida na sua cozinha, sem equipamentos 
+                        especiais ou ingredientes difíceis de encontrar.
+                    </p>
+                    
+                    <p>
+                        Não somos um restaurante, nem uma escola de culinária. Somos entusiastas da comida 
+                        italiana que querem compartilhar conhecimento, dicas e, claro, muito sabor. Desde os 
+                        clássicos que todo mundo ama até receitas menos conhecidas, nosso acervo cresce 
+                        constantemente com novas descobertas.
+                    </p>
+                    
+                    <p>
+                        Seja você um cozinheiro experiente ou alguém que está começando agora na cozinha, 
+                        esperamos que encontre aqui inspiração, aprendizado e, principalmente, vontade de 
+                        experimentar novos sabores. Afinal, comida boa é para ser compartilhada!
+                    </p>
+                </div>
+                
+                <div class="caracteristicas">
+                    <h2 style="font-family: 'Playfair Display', serif; color: var(--text-color); margin-bottom: 1.5rem; font-size: 1.8rem;">O que oferecemos</h2>
+                    
+                    <div class="caracteristicas-grid">
+                        <div class="caracteristica-item">
+                            <div class="caracteristica-icon">
+                                <span class="material-symbols-outlined">restaurant_menu</span>
+                            </div>
+                            <div class="caracteristica-content">
+                                <h3>Receitas Testadas</h3>
+                                <p>Todas as receitas são preparadas e testadas antes de serem publicadas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="caracteristica-item">
+                            <div class="caracteristica-icon">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                            </div>
+                            <div class="caracteristica-content">
+                                <h3>Ingredientes Acessíveis</h3>
+                                <p>Focamos em ingredientes que você encontra em qualquer mercado.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="caracteristica-item">
+                            <div class="caracteristica-icon">
+                                <span class="material-symbols-outlined">menu_book</span>
+                            </div>
+                            <div class="caracteristica-content">
+                                <h3>Instruções Claras</h3>
+                                <p>Passo a passo detalhado com fotos e dicas para garantir seu sucesso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://img.freepik.com/premium-vector/italian-food-logo-name-icon-symbol-vector-italy_526280-402.jpg" alt="Logo Sapore Italiano">
+                <span>Sapore Italiano</span>
+            </div>
+            <p>Compartilhando o sabor da Itália de forma simples e acessível</p>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sapore Italiano. Site de demonstração.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Detecta preferência de tema do usuário
+        function detectTheme() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.body.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+            
+            // Adiciona classe de carregamento
+            document.body.classList.add('loaded');
+        }
+
+        // Anima os elementos
+        function animateElements() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, 100 + (index * 150));
+            });
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            detectTheme();
+            
+            // Configura animação inicial
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transition = 'opacity 0.5s ease';
+            });
+            
+            // Dispara animação
+            setTimeout(animateElements, 300);
+            
+            // Listen for theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', detectTheme);
+        });
+    </script>
+</body>
+</html>
