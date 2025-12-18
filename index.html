@@ -38,7 +38,7 @@
             --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
             --transition: all 0.3s ease;
             --hero-overlay: rgba(0, 0, 0, 0.6);
-            --header-height: 70px;
+            --header-height: 60px; /* Reduzido de 70px */
         }
 
         /* Modo escuro automático */
@@ -83,7 +83,7 @@
             vertical-align: middle;
         }
 
-        /* ===== HEADER OTIMIZADO PARA MOBILE ===== */
+        /* ===== HEADER OTIMIZADO - CORRIGIDO ===== */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -116,8 +116,8 @@
         }
 
         .logo img {
-            height: 40px;
-            width: 40px;
+            height: 35px; /* Reduzido de 40px */
+            width: 35px; /* Reduzido de 40px */
             object-fit: cover;
             border-radius: 50%;
             background: white;
@@ -127,7 +127,7 @@
 
         .logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem; /* Reduzido de 1.2rem */
             font-weight: 700;
             color: white;
             white-space: nowrap;
@@ -144,10 +144,18 @@
             padding: 0.5rem;
         }
 
+        /* Navegação principal - ITENS EM LINHA */
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 0.5rem;
+            gap: 0.8rem; /* Aumentado de 0.5rem */
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            display: flex;
             align-items: center;
         }
 
@@ -157,13 +165,14 @@
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1rem; /* Ajustado */
             border-radius: 20px;
             background-color: rgba(255, 255, 255, 0.1);
             transition: var(--transition);
             font-weight: 500;
             font-size: 0.9rem;
             white-space: nowrap;
+            height: 40px; /* Altura fixa para alinhamento */
         }
 
         .nav-menu a:hover,
@@ -172,7 +181,7 @@
         }
 
         .nav-menu .icon-text {
-            display: inline;
+            display: inline; /* Sempre visível em desktop */
         }
 
         /* ===== MAIN CONTENT ===== */
@@ -479,23 +488,20 @@
         
         /* Tablet */
         @media (max-width: 768px) {
-            :root {
-                --header-height: 60px;
-            }
-            
             .logo img {
-                height: 35px;
-                width: 35px;
+                height: 32px; /* Reduzido */
+                width: 32px; /* Reduzido */
             }
             
             .logo-text {
-                font-size: 1.1rem;
+                font-size: 1rem; /* Reduzido */
             }
             
             .nav-toggle {
                 display: block;
             }
             
+            /* Menu mobile - ainda em coluna quando aberto */
             .nav-menu {
                 position: fixed;
                 top: var(--header-height);
@@ -507,6 +513,7 @@
                 transition: left 0.3s ease;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 z-index: 999;
+                gap: 0.5rem;
             }
             
             .nav-menu.active {
@@ -515,13 +522,14 @@
             
             .nav-menu a {
                 width: 100%;
-                justify-content: center;
-                padding: 0.8rem;
+                justify-content: flex-start; /* Alinha ícone e texto à esquerda */
+                padding: 0.8rem 1.2rem;
                 border-radius: 10px;
+                height: auto;
             }
             
             .nav-menu .icon-text {
-                display: inline;
+                display: inline; /* Mantém texto visível em mobile também */
             }
             
             .hero {
@@ -613,7 +621,12 @@
         /* Mobile Pequeno */
         @media (max-width: 380px) {
             .logo-text {
-                font-size: 1rem;
+                font-size: 0.9rem; /* Ainda menor para telas muito pequenas */
+            }
+            
+            .nav-menu a {
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
             }
             
             .hero {
